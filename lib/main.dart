@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:g_notes/app/presentation/list_notes/pages/list_notes_page.dart';
+import 'package:g_notes/app/presentation/notes_list/pages/notes_list.dart';
 
 void main() {
   runApp(const MainApp());
@@ -11,7 +11,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: ListNotesPage(),
+      home: NotesListPage(),
     );
   }
 }

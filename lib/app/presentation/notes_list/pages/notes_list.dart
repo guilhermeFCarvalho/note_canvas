@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:g_notes/app/presentation/notes_list/widgets/note_card_widget.dart';
+import 'package:go_router/go_router.dart';
 
 class NotesListPage extends StatelessWidget {
   const NotesListPage({super.key});
@@ -10,7 +11,7 @@ class NotesListPage extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () => context.push('/new-note'),
       ),
       body: CustomScrollView(
         slivers: [

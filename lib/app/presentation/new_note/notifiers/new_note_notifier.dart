@@ -12,6 +12,7 @@ class NewNoteNotifier extends StateNotifier<NewNoteState> {
   NewNoteNotifier(this.service) : super(const NewNoteState.initial());
 
   Future<void> saveNote(NoteEntity note) async {
+    state = const NewNoteState.loadInProgress();
     final result = await service.saveNote(
       note,
     );

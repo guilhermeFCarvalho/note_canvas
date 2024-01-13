@@ -18,6 +18,7 @@ class NotesListPage extends HookConsumerWidget {
       });
       return null;
     }, const []);
+    final topPadding = MediaQuery.of(context).padding.top + 20;
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
@@ -28,28 +29,25 @@ class NotesListPage extends HookConsumerWidget {
       ),
       body: CustomScrollView(
         slivers: [
-          const SliverAppBar(
-            title: Text(
-              'Minhas Notas',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
           SliverPadding(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: topPadding,
+            ),
             sliver: Consumer(builder: (_, cRef, __) {
               final state = cRef.watch(notesListStateNotifierProvider);
               return state.maybeWhen(
-                loadSuccess: (data) {
+                loadSuccess: (notes) {
                   return SliverGrid.count(
                     crossAxisSpacing: 12,
                     mainAxisSpacing: 12,
                     crossAxisCount: 3,
-                    children: data
+                    children: notes
                         .map<NoteCardWidget>(
-                          (element) => NoteCardWidget(
-                              title: 'title',
-                              content: element.content,
-                              color: Colors.green[100]!),
+                          (note) => NoteCardWidget(
+                            note: note,
+                            color: Colors.green[100]!,
+                          ),
                         )
                         .toList(),
                   );

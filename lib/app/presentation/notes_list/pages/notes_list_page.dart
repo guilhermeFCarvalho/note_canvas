@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:note_canvas/app/core/infra/navigation_service_impl.dart';
+import 'package:note_canvas/app/presentation/notes_list/notifiers/delete_note_notifier.dart';
 import 'package:note_canvas/app/presentation/notes_list/notifiers/notes_list_notifier.dart';
 import 'package:note_canvas/app/presentation/notes_list/widgets/note_card_widget.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -21,15 +22,22 @@ class NotesListPage extends HookConsumerWidget {
     }, const []);
     final topPadding = MediaQuery.of(context).padding.top + 20;
 
-    ref.listen<NotesListState>(notesListStateNotifierProvider, (_, next) {
-      next.whenOrNull(
-        loadSuccess: (data) {
-          if (data.isEmpty) {
-            navigationService.goToNewNote(context, null);
-          }
-          return;
-        },
-      );
+    ref.listen<NotesListState>(
+      notesListStateNotifierProvider,
+      (_, next) {
+        next.whenOrNull(
+          loadSuccess: (data) {
+            if (data.isEmpty) {
+              navigationService.goToNewNote(context, null);
+            }
+            return;
+          },
+        );
+      },
+    );
+
+    ref.listen<DeleteNoteState>(deleteNoteStateNotifierProvider, (_, next) {
+      next.whenOrNull(loadSuccess: (_) => notesListNotifier.fetchNotes());
     });
 
     return Scaffold(

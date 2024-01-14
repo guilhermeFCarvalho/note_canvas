@@ -1,8 +1,8 @@
 import 'package:g_notes/app/core/error/failure.dart';
+import 'package:g_notes/app/core/shared/common/common_state.dart';
 import 'package:g_notes/app/domain/entities/note_entity.dart';
 import 'package:g_notes/app/domain/services/notes/notes_service.dart';
 import 'package:g_notes/app/infra/services/notes_service_impl.dart';
-import 'package:g_notes/app/shared/common/common_state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 typedef NewNoteState = CommonState<Failure, NoteEntity>;

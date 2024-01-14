@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:g_notes/app/domain/entities/note_entity.dart';
-import 'package:g_notes/app/presentation/new_note/notifiers/new_note_form_state_notifier.dart';
-import 'package:g_notes/app/presentation/new_note/notifiers/new_note_notifier.dart';
+import 'package:note_canvas/app/domain/entities/note_entity.dart';
+import 'package:note_canvas/app/presentation/new_note/notifiers/new_note_form_state_notifier.dart';
+import 'package:note_canvas/app/presentation/new_note/notifiers/new_note_notifier.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:uuid/uuid.dart';
 

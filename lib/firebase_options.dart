@@ -44,38 +44,37 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyACh2tZ-Tl1F_R-588tUMKifaS2_N_hOW4',
-    appId: '1:623025121814:web:69088e4e8d9c8e73686337',
-    messagingSenderId: '623025121814',
-    projectId: 'gnotes-821b1',
-    authDomain: 'gnotes-821b1.firebaseapp.com',
-    storageBucket: 'gnotes-821b1.appspot.com',
-    measurementId: 'G-J9J333JK70',
+    apiKey: 'AIzaSyCkuc0Pp1GqqCeSlSy0rVFrwCCDgyEZV9Y',
+    appId: '1:248483420100:web:82a7c4169c04a9e3c2b691',
+    messagingSenderId: '248483420100',
+    projectId: 'note-canvas',
+    authDomain: 'note-canvas.firebaseapp.com',
+    storageBucket: 'note-canvas.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCGgHss4whTkBa1EfHu6LikVvbilFUTkgw',
-    appId: '1:623025121814:android:d7bafcbd81cc32b3686337',
-    messagingSenderId: '623025121814',
-    projectId: 'gnotes-821b1',
-    storageBucket: 'gnotes-821b1.appspot.com',
+    apiKey: 'AIzaSyBr15UqzHdnKeWpIHqxM3mHy9KgQD8U2vk',
+    appId: '1:248483420100:android:ef233363b537f0c4c2b691',
+    messagingSenderId: '248483420100',
+    projectId: 'note-canvas',
+    storageBucket: 'note-canvas.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAsUPqonrEfnJ8r856tqpsqvrR-zrm4sFA',
-    appId: '1:623025121814:ios:38dcd207ad49c39e686337',
-    messagingSenderId: '623025121814',
-    projectId: 'gnotes-821b1',
-    storageBucket: 'gnotes-821b1.appspot.com',
-    iosBundleId: 'com.example.gNotes',
+    apiKey: 'AIzaSyA_C9mYL7r_M-ICYvhJbY0-Hhbc_SOmeZY',
+    appId: '1:248483420100:ios:6ac4ee6b0cf6508dc2b691',
+    messagingSenderId: '248483420100',
+    projectId: 'note-canvas',
+    storageBucket: 'note-canvas.appspot.com',
+    iosBundleId: 'com.example.notecanvas',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAsUPqonrEfnJ8r856tqpsqvrR-zrm4sFA',
-    appId: '1:623025121814:ios:b7a53145ab2650c4686337',
-    messagingSenderId: '623025121814',
-    projectId: 'gnotes-821b1',
-    storageBucket: 'gnotes-821b1.appspot.com',
-    iosBundleId: 'com.example.gNotes.RunnerTests',
+    apiKey: 'AIzaSyA_C9mYL7r_M-ICYvhJbY0-Hhbc_SOmeZY',
+    appId: '1:248483420100:ios:31b2fdb66a81ca2ac2b691',
+    messagingSenderId: '248483420100',
+    projectId: 'note-canvas',
+    storageBucket: 'note-canvas.appspot.com',
+    iosBundleId: 'com.example.notecanvas.RunnerTests',
   );
 }

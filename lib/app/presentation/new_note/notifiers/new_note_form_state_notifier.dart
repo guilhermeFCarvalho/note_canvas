@@ -1,4 +1,4 @@
-import 'package:g_notes/app/presentation/new_note/notifiers/new_note_form_state.dart';
+import 'package:note_canvas/app/presentation/new_note/notifiers/new_note_form_state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NewNoteFormStateNotifier extends StateNotifier<NewNoteFormState> {

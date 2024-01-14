@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "g_notes" "\0"
+            VALUE "FileDescription", "note_canvas" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "g_notes" "\0"
+            VALUE "InternalName", "note_canvas" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "g_notes.exe" "\0"
-            VALUE "ProductName", "g_notes" "\0"
+            VALUE "OriginalFilename", "note_canvas.exe" "\0"
+            VALUE "ProductName", "note_canvas" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

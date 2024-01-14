@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:g_notes/app/core/infra/navigation_service_impl.dart';
-import 'package:g_notes/app/presentation/notes_list/notifiers/notes_list_notifier.dart';
-import 'package:g_notes/app/presentation/notes_list/widgets/note_card_widget.dart';
+import 'package:note_canvas/app/core/infra/navigation_service_impl.dart';
+import 'package:note_canvas/app/presentation/notes_list/notifiers/notes_list_notifier.dart';
+import 'package:note_canvas/app/presentation/notes_list/widgets/note_card_widget.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NotesListPage extends HookConsumerWidget {

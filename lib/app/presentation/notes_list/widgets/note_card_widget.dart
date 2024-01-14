@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:g_notes/app/core/infra/navigation_service_impl.dart';
-import 'package:g_notes/app/domain/entities/note_entity.dart';
+import 'package:note_canvas/app/core/infra/navigation_service_impl.dart';
+import 'package:note_canvas/app/domain/entities/note_entity.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NoteCardWidget extends ConsumerWidget {

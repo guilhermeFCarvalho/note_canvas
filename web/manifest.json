@@ -1,6 +1,6 @@
 {
-    "name": "g_notes",
-    "short_name": "g_notes",
+    "name": "note_canvas",
+    "short_name": "note_canvas",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

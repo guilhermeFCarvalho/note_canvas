@@ -32,7 +32,7 @@ class NewNotePage extends HookConsumerWidget {
           noteController.text = note?.content ?? '';
           titleController.text = note?.title ?? '';
 
-          newNoteFormNotifier.updateContent(note?.content);
+          newNoteFormNotifier.updateTitle(note?.title);
           newNoteFormNotifier.updateContent(note?.content);
           newNoteFormNotifier.updateId(note?.id ?? uuid.v4());
         },

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:g_notes/app/core/infra/navigation_service_impl.dart';
 import 'package:g_notes/app/domain/entities/note_entity.dart';
-import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class NoteCardWidget extends StatelessWidget {
+class NoteCardWidget extends ConsumerWidget {
   final NoteEntity note;
 
   const NoteCardWidget({
@@ -11,10 +12,11 @@ class NoteCardWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final navigationService = ref.watch(navigationServiceProvider);
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () => context.push('/new-note', extra: note),
+      onTap: () => navigationService.goToNewNote(context, note),
       child: Container(
         padding: const EdgeInsets.all(16),
         color: Color(

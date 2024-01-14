@@ -8,6 +8,7 @@ final routes = GoRouter(
     GoRoute(
       path: '/',
       builder: (_, __) => const NotesListPage(),
+      
     ),
     GoRoute(
       path: '/new-note',

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:g_notes/app/core/infra/navigation_service_impl.dart';
 import 'package:g_notes/app/presentation/notes_list/notifiers/notes_list_notifier.dart';
 import 'package:g_notes/app/presentation/notes_list/widgets/note_card_widget.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NotesListPage extends HookConsumerWidget {
@@ -12,6 +12,7 @@ class NotesListPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final notesListNotifier =
         ref.watch(notesListStateNotifierProvider.notifier);
+    final navigationService = ref.watch(navigationServiceProvider);
     useEffect(() {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         notesListNotifier.fetchNotes();
@@ -19,13 +20,23 @@ class NotesListPage extends HookConsumerWidget {
       return null;
     }, const []);
     final topPadding = MediaQuery.of(context).padding.top + 20;
+
+    ref.listen<NotesListState>(notesListStateNotifierProvider, (_, next) {
+      next.whenOrNull(
+        loadSuccess: (data) {
+          if (data.isEmpty) {
+            navigationService.goToNewNote(context, null);
+          }
+          return;
+        },
+      );
+    });
+
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
+        onPressed: () => navigationService.goToNewNote(context, null),
         child: const Icon(Icons.add),
-        onPressed: () async => await context
-            .push('/new-note')
-            .then((_) => notesListNotifier.fetchNotes()),
       ),
       body: CustomScrollView(
         slivers: [
@@ -36,8 +47,13 @@ class NotesListPage extends HookConsumerWidget {
             ),
             sliver: Consumer(builder: (_, cRef, __) {
               final state = cRef.watch(notesListStateNotifierProvider);
+
               return state.maybeWhen(
                 loadSuccess: (notes) {
+                  if (notes.isEmpty) {
+                    const Text(
+                        'your notes list is empty, start writing your notes!');
+                  }
                   return SliverGrid.count(
                     crossAxisSpacing: 12,
                     mainAxisSpacing: 12,
@@ -46,7 +62,6 @@ class NotesListPage extends HookConsumerWidget {
                         .map<NoteCardWidget>(
                           (note) => NoteCardWidget(
                             note: note,
-                            color: Colors.green[100]!,
                           ),
                         )
                         .toList(),
@@ -62,8 +77,9 @@ class NotesListPage extends HookConsumerWidget {
                     child: Text(failure.message),
                   ),
                 ),
-                orElse: () =>
-                    const SliverToBoxAdapter(child: SizedBox.shrink()),
+                orElse: () => const SliverToBoxAdapter(
+                  child: Text('or else'),
+                ),
               );
             }),
           )

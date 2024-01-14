@@ -8,6 +8,14 @@ class NewNoteFormStateNotifier extends StateNotifier<NewNoteFormState> {
     state = state.copyWith(id: id);
   }
 
+  void updateTitle(String? title) {
+    state = state.copyWith(title: title);
+  }
+
+  void updateColor(String? color) {
+    state = state.copyWith(color: color);
+  }
+
   void updateContent(String? content) {
     state = state.copyWith(content: content);
   }

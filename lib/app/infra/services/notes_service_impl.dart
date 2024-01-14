@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:g_notes/app/core/error/failure.dart';
 import 'package:g_notes/app/core/providers/firebase_providers.dart';
 import 'package:g_notes/app/domain/entities/note_entity.dart';
-import 'package:g_notes/app/domain/services/notes_service.dart';
+import 'package:g_notes/app/domain/services/notes/notes_service.dart';
 import 'package:g_notes/app/infra/dtos/notes_dto.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

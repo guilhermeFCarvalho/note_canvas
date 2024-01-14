@@ -4,11 +4,10 @@ import 'package:go_router/go_router.dart';
 
 class NoteCardWidget extends StatelessWidget {
   final NoteEntity note;
-  final Color color;
+
   const NoteCardWidget({
     super.key,
     required this.note,
-    required this.color,
   });
 
   @override
@@ -18,12 +17,14 @@ class NoteCardWidget extends StatelessWidget {
       onTap: () => context.push('/new-note', extra: note),
       child: Container(
         padding: const EdgeInsets.all(16),
-        color: color,
+        color: Color(
+          int.parse(note.color),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'title',
+              note.title,
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(

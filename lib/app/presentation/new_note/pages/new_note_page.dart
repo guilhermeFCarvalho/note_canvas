@@ -22,12 +22,17 @@ class NewNotePage extends HookConsumerWidget {
     final newNoteState = ref.watch(newNoteFormStateNotifierProvider);
 
     final noteController = useTextEditingController();
+    final titleController = useTextEditingController();
+
     final ValueNotifier<NoteEntity?> noteValueNotifier = useState(note);
     const uuid = Uuid();
     useEffect(() {
       WidgetsBinding.instance.addPostFrameCallback(
         (_) {
           noteController.text = note?.content ?? '';
+          titleController.text = note?.title ?? '';
+
+          newNoteFormNotifier.updateContent(note?.content);
           newNoteFormNotifier.updateContent(note?.content);
           newNoteFormNotifier.updateId(note?.id ?? uuid.v4());
         },
@@ -56,7 +61,19 @@ class NewNotePage extends HookConsumerWidget {
     );
     return Scaffold(
       appBar: AppBar(
-        title: const Text('new note'),
+        title: TextField(
+          controller: titleController,
+          onChanged: (value) => newNoteFormNotifier.updateTitle(value),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.inversePrimary,
+            fontSize: 20,
+          ),
+          cursorColor: Theme.of(context).colorScheme.inversePrimary,
+          decoration: const InputDecoration.collapsed(
+            hintText: 'add your title here...',
+          ),
+        ),
         actions: [
           if (newNoteState.noteCanSubmit) ...[
             GestureDetector(
@@ -65,8 +82,11 @@ class NewNotePage extends HookConsumerWidget {
               onTap: () {
                 newNoteNotifier.saveNote(
                   NoteEntity(
-                    content: newNoteState.content!,
                     id: newNoteState.id!,
+                    title: newNoteState.title ?? '',
+                    content: newNoteState.content!,
+                    lastModified: DateTime.now().toString(),
+                    color: newNoteState.color ?? '0xFFC8E6C9',
                   ),
                 );
               },

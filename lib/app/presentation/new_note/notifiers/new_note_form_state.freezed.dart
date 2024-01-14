@@ -17,7 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$NewNoteFormState {
   String? get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
+  String? get color => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NewNoteFormStateCopyWith<NewNoteFormState> get copyWith =>
@@ -30,7 +32,7 @@ abstract class $NewNoteFormStateCopyWith<$Res> {
           NewNoteFormState value, $Res Function(NewNoteFormState) then) =
       _$NewNoteFormStateCopyWithImpl<$Res, NewNoteFormState>;
   @useResult
-  $Res call({String? id, String? content});
+  $Res call({String? id, String? title, String? content, String? color});
 }
 
 /// @nodoc
@@ -47,16 +49,26 @@ class _$NewNoteFormStateCopyWithImpl<$Res, $Val extends NewNoteFormState>
   @override
   $Res call({
     Object? id = freezed,
+    Object? title = freezed,
     Object? content = freezed,
+    Object? color = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
+              as String?,
+      color: freezed == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -70,7 +82,7 @@ abstract class _$$NewNoteFormStateImplCopyWith<$Res>
       __$$NewNoteFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? id, String? content});
+  $Res call({String? id, String? title, String? content, String? color});
 }
 
 /// @nodoc
@@ -85,16 +97,26 @@ class __$$NewNoteFormStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? title = freezed,
     Object? content = freezed,
+    Object? color = freezed,
   }) {
     return _then(_$NewNoteFormStateImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       content: freezed == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
+              as String?,
+      color: freezed == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -103,16 +125,25 @@ class __$$NewNoteFormStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$NewNoteFormStateImpl extends _NewNoteFormState {
-  _$NewNoteFormStateImpl({required this.id, required this.content}) : super._();
+  _$NewNoteFormStateImpl(
+      {required this.id,
+      required this.title,
+      required this.content,
+      required this.color})
+      : super._();
 
   @override
   final String? id;
   @override
+  final String? title;
+  @override
   final String? content;
+  @override
+  final String? color;
 
   @override
   String toString() {
-    return 'NewNoteFormState(id: $id, content: $content)';
+    return 'NewNoteFormState(id: $id, title: $title, content: $content, color: $color)';
   }
 
   @override
@@ -121,11 +152,13 @@ class _$NewNoteFormStateImpl extends _NewNoteFormState {
         (other.runtimeType == runtimeType &&
             other is _$NewNoteFormStateImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.content, content) || other.content == content));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.color, color) || other.color == color));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, content);
+  int get hashCode => Object.hash(runtimeType, id, title, content, color);
 
   @JsonKey(ignore: true)
   @override
@@ -138,13 +171,19 @@ class _$NewNoteFormStateImpl extends _NewNoteFormState {
 abstract class _NewNoteFormState extends NewNoteFormState {
   factory _NewNoteFormState(
       {required final String? id,
-      required final String? content}) = _$NewNoteFormStateImpl;
+      required final String? title,
+      required final String? content,
+      required final String? color}) = _$NewNoteFormStateImpl;
   _NewNoteFormState._() : super._();
 
   @override
   String? get id;
   @override
+  String? get title;
+  @override
   String? get content;
+  @override
+  String? get color;
   @override
   @JsonKey(ignore: true)
   _$$NewNoteFormStateImplCopyWith<_$NewNoteFormStateImpl> get copyWith =>

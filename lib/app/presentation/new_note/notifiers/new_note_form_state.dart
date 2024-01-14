@@ -7,14 +7,17 @@ abstract class NewNoteFormState with _$NewNoteFormState {
   const NewNoteFormState._();
   factory NewNoteFormState({
     required String? id,
+    required String? title,
     required String? content,
+    required String? color,
   }) = _NewNoteFormState;
 
   factory NewNoteFormState.initial() => NewNoteFormState(
         id: null,
         content: null,
+        title: null,
+        color: null,
       );
 
-  bool get noteCanSubmit =>
-      id != null && id!.isNotEmpty && content != null && content!.isNotEmpty;
+  bool get noteCanSubmit => content != null && content!.isNotEmpty;
 }
